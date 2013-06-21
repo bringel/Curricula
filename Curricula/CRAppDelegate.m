@@ -7,8 +7,7 @@
 //
 
 #import "CRAppDelegate.h"
-
-#import "CRMasterViewController.h"
+#import "CRSemesterViewController.h"
 
 @implementation CRAppDelegate
 
@@ -20,18 +19,14 @@
 {
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
         
-        UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-        CRMasterViewController *controller = (CRMasterViewController *)masterNavigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        CRMasterViewController *controller = (CRMasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
     }
+    else{
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        CRSemesterViewController *semesterViewController = (CRSemesterViewController *)[navigationController topViewController];
+        semesterViewController.managedObjectContext = self.managedObjectContext;
+    }
+    [TestFlight takeOff:@"357e86f6-cf48-4e33-90f1-57e3fe6b0775"];
     return YES;
 }
 							
