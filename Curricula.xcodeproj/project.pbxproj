@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F6FA3041773D86800D48882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3031773D86800D48882 /* Foundation.framework */; };
+		2F6FA3061773D86800D48882 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3051773D86800D48882 /* CoreGraphics.framework */; };
+		2F6FA3081773D86800D48882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3071773D86800D48882 /* UIKit.framework */; };
+		2F6FA30A1773D86800D48882 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3091773D86800D48882 /* CoreData.framework */; };
+		2F6FA3101773D86800D48882 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FA30E1773D86800D48882 /* InfoPlist.strings */; };
+		2F6FA3121773D86800D48882 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3111773D86800D48882 /* main.m */; };
+		2F6FA3161773D86800D48882 /* CRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3151773D86800D48882 /* CRAppDelegate.m */; };
+		2F6FA3191773D86800D48882 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FA3171773D86800D48882 /* Main_iPhone.storyboard */; };
+		2F6FA31C1773D86800D48882 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FA31A1773D86800D48882 /* Main_iPad.storyboard */; };
+		2F6FA31F1773D86800D48882 /* Curricula.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA31D1773D86800D48882 /* Curricula.xcdatamodeld */; };
+		2F6FA3221773D86800D48882 /* CRMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3211773D86800D48882 /* CRMasterViewController.m */; };
+		2F6FA3251773D86800D48882 /* CRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3241773D86800D48882 /* CRDetailViewController.m */; };
+		2F6FA3271773D86800D48882 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FA3261773D86800D48882 /* Images.xcassets */; };
+		2F6FA32E1773D86900D48882 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA32D1773D86900D48882 /* XCTest.framework */; };
+		2F6FA32F1773D86900D48882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3031773D86800D48882 /* Foundation.framework */; };
+		2F6FA3301773D86900D48882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3071773D86800D48882 /* UIKit.framework */; };
+		2F6FA3311773D86900D48882 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3091773D86800D48882 /* CoreData.framework */; };
+		2F6FA3391773D86900D48882 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FA3371773D86900D48882 /* InfoPlist.strings */; };
+		2F6FA33B1773D86900D48882 /* CurriculaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA33A1773D86900D48882 /* CurriculaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F6FA3321773D86900D48882 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F6FA2F81773D86800D48882 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F6FA2FF1773D86800D48882;
+			remoteInfo = Curricula;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F6FA3001773D86800D48882 /* Curricula.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curricula.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F6FA3031773D86800D48882 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2F6FA3051773D86800D48882 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2F6FA3071773D86800D48882 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2F6FA3091773D86800D48882 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2F6FA30D1773D86800D48882 /* Curricula-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Curricula-Info.plist"; sourceTree = "<group>"; };
+		2F6FA30F1773D86800D48882 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F6FA3111773D86800D48882 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F6FA3131773D86800D48882 /* Curricula-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Curricula-Prefix.pch"; sourceTree = "<group>"; };
+		2F6FA3141773D86800D48882 /* CRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRAppDelegate.h; sourceTree = "<group>"; };
+		2F6FA3151773D86800D48882 /* CRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRAppDelegate.m; sourceTree = "<group>"; };
+		2F6FA3181773D86800D48882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		2F6FA31B1773D86800D48882 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		2F6FA31E1773D86800D48882 /* Curricula.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Curricula.xcdatamodel; sourceTree = "<group>"; };
+		2F6FA3201773D86800D48882 /* CRMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRMasterViewController.h; sourceTree = "<group>"; };
+		2F6FA3211773D86800D48882 /* CRMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRMasterViewController.m; sourceTree = "<group>"; };
+		2F6FA3231773D86800D48882 /* CRDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRDetailViewController.h; sourceTree = "<group>"; };
+		2F6FA3241773D86800D48882 /* CRDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRDetailViewController.m; sourceTree = "<group>"; };
+		2F6FA3261773D86800D48882 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2F6FA32C1773D86900D48882 /* CurriculaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurriculaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F6FA32D1773D86900D48882 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2F6FA3361773D86900D48882 /* CurriculaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CurriculaTests-Info.plist"; sourceTree = "<group>"; };
+		2F6FA3381773D86900D48882 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F6FA33A1773D86900D48882 /* CurriculaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurriculaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F6FA2FD1773D86800D48882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6FA3061773D86800D48882 /* CoreGraphics.framework in Frameworks */,
+				2F6FA30A1773D86800D48882 /* CoreData.framework in Frameworks */,
+				2F6FA3081773D86800D48882 /* UIKit.framework in Frameworks */,
+				2F6FA3041773D86800D48882 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F6FA3291773D86900D48882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6FA32E1773D86900D48882 /* XCTest.framework in Frameworks */,
+				2F6FA3311773D86900D48882 /* CoreData.framework in Frameworks */,
+				2F6FA3301773D86900D48882 /* UIKit.framework in Frameworks */,
+				2F6FA32F1773D86900D48882 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F6FA2F71773D86800D48882 = {
+			isa = PBXGroup;
+			children = (
+				2F6FA30B1773D86800D48882 /* Curricula */,
+				2F6FA3341773D86900D48882 /* CurriculaTests */,
+				2F6FA3021773D86800D48882 /* Frameworks */,
+				2F6FA3011773D86800D48882 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F6FA3011773D86800D48882 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA3001773D86800D48882 /* Curricula.app */,
+				2F6FA32C1773D86900D48882 /* CurriculaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F6FA3021773D86800D48882 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA3031773D86800D48882 /* Foundation.framework */,
+				2F6FA3051773D86800D48882 /* CoreGraphics.framework */,
+				2F6FA3071773D86800D48882 /* UIKit.framework */,
+				2F6FA3091773D86800D48882 /* CoreData.framework */,
+				2F6FA32D1773D86900D48882 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F6FA30B1773D86800D48882 /* Curricula */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA3141773D86800D48882 /* CRAppDelegate.h */,
+				2F6FA3151773D86800D48882 /* CRAppDelegate.m */,
+				2F6FA3171773D86800D48882 /* Main_iPhone.storyboard */,
+				2F6FA31A1773D86800D48882 /* Main_iPad.storyboard */,
+				2F6FA3201773D86800D48882 /* CRMasterViewController.h */,
+				2F6FA3211773D86800D48882 /* CRMasterViewController.m */,
+				2F6FA3231773D86800D48882 /* CRDetailViewController.h */,
+				2F6FA3241773D86800D48882 /* CRDetailViewController.m */,
+				2F6FA3261773D86800D48882 /* Images.xcassets */,
+				2F6FA31D1773D86800D48882 /* Curricula.xcdatamodeld */,
+				2F6FA30C1773D86800D48882 /* Supporting Files */,
+			);
+			path = Curricula;
+			sourceTree = "<group>";
+		};
+		2F6FA30C1773D86800D48882 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA30D1773D86800D48882 /* Curricula-Info.plist */,
+				2F6FA30E1773D86800D48882 /* InfoPlist.strings */,
+				2F6FA3111773D86800D48882 /* main.m */,
+				2F6FA3131773D86800D48882 /* Curricula-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F6FA3341773D86900D48882 /* CurriculaTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA33A1773D86900D48882 /* CurriculaTests.m */,
+				2F6FA3351773D86900D48882 /* Supporting Files */,
+			);
+			path = CurriculaTests;
+			sourceTree = "<group>";
+		};
+		2F6FA3351773D86900D48882 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA3361773D86900D48882 /* CurriculaTests-Info.plist */,
+				2F6FA3371773D86900D48882 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F6FA2FF1773D86800D48882 /* Curricula */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F6FA33E1773D86900D48882 /* Build configuration list for PBXNativeTarget "Curricula" */;
+			buildPhases = (
+				2F6FA2FC1773D86800D48882 /* Sources */,
+				2F6FA2FD1773D86800D48882 /* Frameworks */,
+				2F6FA2FE1773D86800D48882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Curricula;
+			productName = Curricula;
+			productReference = 2F6FA3001773D86800D48882 /* Curricula.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F6FA32B1773D86900D48882 /* CurriculaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F6FA3411773D86900D48882 /* Build configuration list for PBXNativeTarget "CurriculaTests" */;
+			buildPhases = (
+				2F6FA3281773D86900D48882 /* Sources */,
+				2F6FA3291773D86900D48882 /* Frameworks */,
+				2F6FA32A1773D86900D48882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F6FA3331773D86900D48882 /* PBXTargetDependency */,
+			);
+			name = CurriculaTests;
+			productName = CurriculaTests;
+			productReference = 2F6FA32C1773D86900D48882 /* CurriculaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F6FA2F81773D86800D48882 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CR;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Brad Ringel";
+				TargetAttributes = {
+					2F6FA32B1773D86900D48882 = {
+						TestTargetID = 2F6FA2FF1773D86800D48882;
+					};
+				};
+			};
+			buildConfigurationList = 2F6FA2FB1773D86800D48882 /* Build configuration list for PBXProject "Curricula" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F6FA2F71773D86800D48882;
+			productRefGroup = 2F6FA3011773D86800D48882 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F6FA2FF1773D86800D48882 /* Curricula */,
+				2F6FA32B1773D86900D48882 /* CurriculaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F6FA2FE1773D86800D48882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6FA31C1773D86800D48882 /* Main_iPad.storyboard in Resources */,
+				2F6FA3271773D86800D48882 /* Images.xcassets in Resources */,
+				2F6FA3191773D86800D48882 /* Main_iPhone.storyboard in Resources */,
+				2F6FA3101773D86800D48882 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F6FA32A1773D86900D48882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6FA3391773D86900D48882 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F6FA2FC1773D86800D48882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6FA31F1773D86800D48882 /* Curricula.xcdatamodeld in Sources */,
+				2F6FA3251773D86800D48882 /* CRDetailViewController.m in Sources */,
+				2F6FA3121773D86800D48882 /* main.m in Sources */,
+				2F6FA3161773D86800D48882 /* CRAppDelegate.m in Sources */,
+				2F6FA3221773D86800D48882 /* CRMasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F6FA3281773D86900D48882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6FA33B1773D86900D48882 /* CurriculaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F6FA3331773D86900D48882 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F6FA2FF1773D86800D48882 /* Curricula */;
+			targetProxy = 2F6FA3321773D86900D48882 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F6FA30E1773D86800D48882 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F6FA30F1773D86800D48882 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F6FA3171773D86800D48882 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F6FA3181773D86800D48882 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		2F6FA31A1773D86800D48882 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F6FA31B1773D86800D48882 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		2F6FA3371773D86900D48882 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F6FA3381773D86900D48882 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F6FA33C1773D86900D48882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F6FA33D1773D86900D48882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F6FA33F1773D86900D48882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Curricula/Curricula-Prefix.pch";
+				INFOPLIST_FILE = "Curricula/Curricula-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2F6FA3401773D86900D48882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Curricula/Curricula-Prefix.pch";
+				INFOPLIST_FILE = "Curricula/Curricula-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2F6FA3421773D86900D48882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Curricula.app/Curricula";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Curricula/Curricula-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CurriculaTests/CurriculaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2F6FA3431773D86900D48882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Curricula.app/Curricula";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Curricula/Curricula-Prefix.pch";
+				INFOPLIST_FILE = "CurriculaTests/CurriculaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F6FA2FB1773D86800D48882 /* Build configuration list for PBXProject "Curricula" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F6FA33C1773D86900D48882 /* Debug */,
+				2F6FA33D1773D86900D48882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F6FA33E1773D86900D48882 /* Build configuration list for PBXNativeTarget "Curricula" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F6FA33F1773D86900D48882 /* Debug */,
+				2F6FA3401773D86900D48882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F6FA3411773D86900D48882 /* Build configuration list for PBXNativeTarget "CurriculaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F6FA3421773D86900D48882 /* Debug */,
+				2F6FA3431773D86900D48882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F6FA31D1773D86800D48882 /* Curricula.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F6FA31E1773D86800D48882 /* Curricula.xcdatamodel */,
+			);
+			currentVersion = 2F6FA31E1773D86800D48882 /* Curricula.xcdatamodel */;
+			path = Curricula.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2F6FA2F81773D86800D48882 /* Project object */;
+}
