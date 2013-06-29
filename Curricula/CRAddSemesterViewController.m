@@ -1,25 +1,31 @@
 //
-//  CRSemesterViewController.m
+//  CRAddSemesterViewController.m
 //  Curricula
 //
 //  Created by Brad Ringel on 6/20/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
-#import "CRSemesterViewController.h"
 #import "CRAddSemesterViewController.h"
+#import "CRSemester.h"
+#import "CREntryCell.h"
+#import "CRButtonCell.h"
+#import "CRAddCourseViewController.h"
 
-@interface CRSemesterViewController ()
+@interface CRAddSemesterViewController ()
+
+@property (nonatomic, strong) NSString *semesterName;
 
 @end
 
-@implementation CRSemesterViewController
+@implementation CRAddSemesterViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.title = @"New Semester";
     }
     return self;
 }
@@ -33,25 +39,31 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
-    request.entity = entity;
-    NSError *error = nil;
-    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
-    if(fetchedObjects.count == 0){
-        //there are no semesters and we should create a new one
-        [self performSegueWithIdentifier:@"addNewSemester" sender:self];
-    }
-    else{
-        self.semester = [fetchedObjects lastObject];
-    }
-    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSMutableArray *)semesterCourses{
+    if(_semesterCourses == nil){
+        _semesterCourses = [[NSMutableArray alloc] init];
+    }
+    return _semesterCourses;
+}
+
+- (IBAction)cancelAdding:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)doneAdding:(id)sender{
+    CRSemester *newSemester = [NSEntityDescription insertNewObjectForEntityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
+    
+    
+    NSError *error = nil;
+    [self.managedObjectContext save:&error];
 }
 
 #pragma mark - Table view data source
@@ -65,17 +77,41 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.courses.count;
+    return self.semesterCourses.count + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier;
+    if(indexPath.row == 0){
+        cellIdentifier = @"entryCell";
+    }
+    else if(indexPath.row == self.semesterCourses.count + 1){
+        cellIdentifier = @"buttonCell";
+    }
+    else{
+        cellIdentifier = @"courseCell";
+    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    if(indexPath.row == 0){
+        ((CREntryCell*)cell).textLabel.text = @"Semester Name:";
+    }
+    if(indexPath.row == self.semesterCourses.count + 1){
+        ((CRButtonCell *)cell).buttonLabel.text = @"Add a New Course";
+        [((CRButtonCell *)cell).buttonLabel setTextColor:self.view.tintColor];
+    }
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == self.semesterCourses.count + 1){
+        NSLog(@"Add a new Course to the semester");
+        [self performSegueWithIdentifier:@"addNewCourse" sender:self];
+    }
 }
 
 /*
@@ -117,6 +153,11 @@
 }
 */
 
+- (void)didAddCourse:(CRCourse *)newCourse{
+    [self.semesterCourses addObject:newCourse];
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - Navigation
 
@@ -125,10 +166,24 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqualToString:@"addNewSemester"]){
-        CRAddSemesterViewController *addSemesterViewController = (CRAddSemesterViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
-        addSemesterViewController.managedObjectContext = self.managedObjectContext;
-    }
+    NSLog(@"%@", segue.destinationViewController);
+    CRAddCourseViewController *addCourseViewController = [segue.destinationViewController topViewController];
+    addCourseViewController.managedObjectContext = self.managedObjectContext;
+    addCourseViewController.delegate = self;
+}
+
+
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.semesterName = textField.text;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

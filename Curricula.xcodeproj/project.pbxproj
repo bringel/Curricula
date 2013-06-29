@@ -25,6 +25,12 @@
 		2F6FA3391773D86900D48882 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FA3371773D86900D48882 /* InfoPlist.strings */; };
 		2F6FA33B1773D86900D48882 /* CurriculaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA33A1773D86900D48882 /* CurriculaTests.m */; };
 		2F6FA3461773DAE600D48882 /* CRSemesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3451773DAE600D48882 /* CRSemesterViewController.m */; };
+		2F6FA34E1773E07800D48882 /* CRAddSemesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA34D1773E07800D48882 /* CRAddSemesterViewController.m */; };
+		2F6FA3521773EB4000D48882 /* CREntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3511773EB4000D48882 /* CREntryCell.m */; };
+		2F6FA3551773EB4900D48882 /* CRButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3541773EB4900D48882 /* CRButtonCell.m */; };
+		2FFD5EE4177E67C800019C5A /* CRAddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD5EE3177E67C800019C5A /* CRAddCourseViewController.m */; };
+		2FFD5EE7177E6A8F00019C5A /* CRSemester.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD5EE6177E6A8F00019C5A /* CRSemester.m */; };
+		2FFD5EEA177E6A8F00019C5A /* CRCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD5EE9177E6A8F00019C5A /* CRCourse.m */; };
 		7D6EB807D45B4317AC60D9B7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBDB623FF6242208D01D3B1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +68,18 @@
 		2F6FA33A1773D86900D48882 /* CurriculaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurriculaTests.m; sourceTree = "<group>"; };
 		2F6FA3441773DAE600D48882 /* CRSemesterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRSemesterViewController.h; sourceTree = "<group>"; };
 		2F6FA3451773DAE600D48882 /* CRSemesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRSemesterViewController.m; sourceTree = "<group>"; };
+		2F6FA34C1773E07800D48882 /* CRAddSemesterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRAddSemesterViewController.h; sourceTree = "<group>"; };
+		2F6FA34D1773E07800D48882 /* CRAddSemesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRAddSemesterViewController.m; sourceTree = "<group>"; };
+		2F6FA3501773EB4000D48882 /* CREntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CREntryCell.h; sourceTree = "<group>"; };
+		2F6FA3511773EB4000D48882 /* CREntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CREntryCell.m; sourceTree = "<group>"; };
+		2F6FA3531773EB4900D48882 /* CRButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRButtonCell.h; sourceTree = "<group>"; };
+		2F6FA3541773EB4900D48882 /* CRButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRButtonCell.m; sourceTree = "<group>"; };
+		2FFD5EE2177E67C800019C5A /* CRAddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRAddCourseViewController.h; sourceTree = "<group>"; };
+		2FFD5EE3177E67C800019C5A /* CRAddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRAddCourseViewController.m; sourceTree = "<group>"; };
+		2FFD5EE5177E6A8F00019C5A /* CRSemester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRSemester.h; sourceTree = "<group>"; };
+		2FFD5EE6177E6A8F00019C5A /* CRSemester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRSemester.m; sourceTree = "<group>"; };
+		2FFD5EE8177E6A8F00019C5A /* CRCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCourse.h; sourceTree = "<group>"; };
+		2FFD5EE9177E6A8F00019C5A /* CRCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCourse.m; sourceTree = "<group>"; };
 		7DBDB623FF6242208D01D3B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,6 +146,8 @@
 		2F6FA30B1773D86800D48882 /* Curricula */ = {
 			isa = PBXGroup;
 			children = (
+				2F6FA34F1773EB1C00D48882 /* Views */,
+				2F6FA34B1773DD0D00D48882 /* Model */,
 				2F6FA3471773DAEE00D48882 /* View Controllers */,
 				2F6FA3141773D86800D48882 /* CRAppDelegate.h */,
 				2F6FA3151773D86800D48882 /* CRAppDelegate.m */,
@@ -174,8 +194,34 @@
 			children = (
 				2F6FA3441773DAE600D48882 /* CRSemesterViewController.h */,
 				2F6FA3451773DAE600D48882 /* CRSemesterViewController.m */,
+				2F6FA34C1773E07800D48882 /* CRAddSemesterViewController.h */,
+				2F6FA34D1773E07800D48882 /* CRAddSemesterViewController.m */,
+				2FFD5EE2177E67C800019C5A /* CRAddCourseViewController.h */,
+				2FFD5EE3177E67C800019C5A /* CRAddCourseViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		2F6FA34B1773DD0D00D48882 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD5EE8177E6A8F00019C5A /* CRCourse.h */,
+				2FFD5EE9177E6A8F00019C5A /* CRCourse.m */,
+				2FFD5EE5177E6A8F00019C5A /* CRSemester.h */,
+				2FFD5EE6177E6A8F00019C5A /* CRSemester.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2F6FA34F1773EB1C00D48882 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F6FA3501773EB4000D48882 /* CREntryCell.h */,
+				2F6FA3511773EB4000D48882 /* CREntryCell.m */,
+				2F6FA3531773EB4900D48882 /* CRButtonCell.h */,
+				2F6FA3541773EB4900D48882 /* CRButtonCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,8 +359,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFD5EE7177E6A8F00019C5A /* CRSemester.m in Sources */,
+				2FFD5EE4177E67C800019C5A /* CRAddCourseViewController.m in Sources */,
 				2F6FA31F1773D86800D48882 /* Curricula.xcdatamodeld in Sources */,
+				2F6FA3551773EB4900D48882 /* CRButtonCell.m in Sources */,
 				2F6FA3461773DAE600D48882 /* CRSemesterViewController.m in Sources */,
+				2FFD5EEA177E6A8F00019C5A /* CRCourse.m in Sources */,
+				2F6FA34E1773E07800D48882 /* CRAddSemesterViewController.m in Sources */,
+				2F6FA3521773EB4000D48882 /* CREntryCell.m in Sources */,
 				2F6FA3121773D86800D48882 /* main.m in Sources */,
 				2F6FA3161773D86800D48882 /* CRAppDelegate.m in Sources */,
 			);
@@ -450,7 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bradley Ringel (2WB8P2K6SQ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Curricula/Curricula-Prefix.pch";
 				INFOPLIST_FILE = "Curricula/Curricula-Info.plist";
@@ -465,7 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bradley Ringel (2WB8P2K6SQ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Curricula/Curricula-Prefix.pch";
 				INFOPLIST_FILE = "Curricula/Curricula-Info.plist";

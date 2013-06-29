@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CRSemester.h"
 
 @interface CRSemesterViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) CRSemester *semester;
+@property (nonatomic, strong) NSArray *courses;
 
 @end

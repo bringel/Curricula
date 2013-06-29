@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3381.3" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="CRSemester" syncable="YES">
+    <entity name="CRCourse" representedClassName="CRCourse" syncable="YES">
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creditHours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="professorName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="semester" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRSemester" inverseName="courses" inverseEntity="CRSemester" syncable="YES"/>
+    </entity>
+    <entity name="CRSemester" representedClassName="CRSemester" syncable="YES">
         <attribute name="semesterName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CRCourse" inverseName="semester" inverseEntity="CRCourse" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CRSemester" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CRSemester" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="CRCourse" positionX="160" positionY="54" width="128" height="103"/>
     </elements>
 </model>

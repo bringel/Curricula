@@ -1,19 +1,19 @@
 //
-//  CRSemesterViewController.m
+//  CRAddCourseViewController.m
 //  Curricula
 //
-//  Created by Brad Ringel on 6/20/13.
+//  Created by Brad Ringel on 6/28/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
-#import "CRSemesterViewController.h"
-#import "CRAddSemesterViewController.h"
+#import "CRAddCourseViewController.h"
+#import "CRCourse.h"
 
-@interface CRSemesterViewController ()
+@interface CRAddCourseViewController ()
 
 @end
 
-@implementation CRSemesterViewController
+@implementation CRAddCourseViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,39 +33,43 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
-    request.entity = entity;
-    NSError *error = nil;
-    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
-    if(fetchedObjects.count == 0){
-        //there are no semesters and we should create a new one
-        [self performSegueWithIdentifier:@"addNewSemester" sender:self];
-    }
-    else{
-        self.semester = [fetchedObjects lastObject];
-    }
-    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+- (IBAction)cancelAdding:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (IBAction)doneAdding:(id)sender{
+    CRCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"CRCourse" inManagedObjectContext:self.managedObjectContext];
+    newCourse.courseName = self.courseNameField.text;
+    newCourse.professorName = self.professorNameField.text;
+    newCourse.creditHours = [NSNumber numberWithDouble: [self.creditHoursField.text doubleValue]];
+    
+    NSError *error = nil;
+    [self.managedObjectContext save:&error];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Table view data source
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.courses.count;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,7 +81,7 @@
     
     return cell;
 }
-
+*/
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +121,7 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -125,10 +129,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqualToString:@"addNewSemester"]){
-        CRAddSemesterViewController *addSemesterViewController = (CRAddSemesterViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
-        addSemesterViewController.managedObjectContext = self.managedObjectContext;
-    }
 }
 
+ */
 @end
