@@ -131,4 +131,14 @@
     }
 }
 
+- (IBAction)finishAddingSemester:(UIStoryboardSegue *)unwindSegue{
+    CRAddSemesterViewController *source = (CRAddSemesterViewController *)unwindSegue.sourceViewController;
+    self.semester = source.semester;
+    self.title = self.semester.semesterName;
+}
+
+- (IBAction)cancelAddingSemester:(UIStoryboardSegue *)unwindSegue{
+    
+}
+
 @end

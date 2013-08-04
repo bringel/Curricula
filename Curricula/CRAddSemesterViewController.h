@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CRAddCourseViewController.h"
+#import "CRSemester.h"
 
-@interface CRAddSemesterViewController : UITableViewController <UITextFieldDelegate, CRCourseAddingDelegate>
+@interface CRAddSemesterViewController : UITableViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, strong) NSMutableArray *semesterCourses;
+@property (weak, nonatomic) IBOutlet UITextField *semesterNameField;
+@property (nonatomic, strong) CRSemester *semester;
 
-- (IBAction)cancelAdding:(id)sender;
-- (IBAction)doneAdding:(id)sender;
 
 @end

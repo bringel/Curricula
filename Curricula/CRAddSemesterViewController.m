@@ -10,11 +10,12 @@
 #import "CRSemester.h"
 #import "CREntryCell.h"
 #import "CRButtonCell.h"
-#import "CRAddCourseViewController.h"
+#import "CRCourseCell.h"
 
 @interface CRAddSemesterViewController ()
 
 @property (nonatomic, strong) NSString *semesterName;
+
 
 @end
 
@@ -54,17 +55,7 @@
     return _semesterCourses;
 }
 
-- (IBAction)cancelAdding:(id)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
-- (IBAction)doneAdding:(id)sender{
-    CRSemester *newSemester = [NSEntityDescription insertNewObjectForEntityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
-    
-    
-    NSError *error = nil;
-    [self.managedObjectContext save:&error];
-}
 
 #pragma mark - Table view data source
 
@@ -97,6 +88,9 @@
     // Configure the cell...
     if(indexPath.row == 0){
         ((CREntryCell*)cell).textLabel.text = @"Semester Name:";
+    }
+    else if(indexPath.row <= self.semesterCourses.count){
+        ((CRCourseCell*)cell).nameLabel.text = [self.semesterCourses objectAtIndex:indexPath.row];
     }
     if(indexPath.row == self.semesterCourses.count + 1){
         ((CRButtonCell *)cell).buttonLabel.text = @"Add a New Course";
@@ -153,11 +147,10 @@
 }
 */
 
-- (void)didAddCourse:(CRCourse *)newCourse{
-    [self.semesterCourses addObject:newCourse];
-    [self.tableView reloadData];
-}
-
+//- (void)didAddCourse:(CRCourse *)newCourse{
+//    [self.semesterCourses addObject:newCourse];
+//    [self.tableView reloadData];
+//}
 
 #pragma mark - Navigation
 
@@ -166,11 +159,19 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSLog(@"%@", segue.destinationViewController);
-    CRAddCourseViewController *addCourseViewController = [segue.destinationViewController topViewController];
-    addCourseViewController.managedObjectContext = self.managedObjectContext;
-    addCourseViewController.delegate = self;
+    if([segue.identifier isEqualToString:@"finishAddingSemester"]){
+        //create a new semester object with all the courses and info, save it, and pass it along
+        CRSemester *semester = [NSEntityDescription insertNewObjectForEntityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
+        CREntryCell *entryCell = (CREntryCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        semester.semesterName = entryCell.inputField.text;
+        semester.courses = [NSSet setWithArray:self.semesterCourses];
+        
+        NSError *error;
+        [self.managedObjectContext save:&error];
+        self.semester = semester;
+    }
 }
+
 
 
 

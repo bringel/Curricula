@@ -15,4 +15,8 @@
 @property (nonatomic, strong) CRSemester *semester;
 @property (nonatomic, strong) NSArray *courses;
 
+
+- (IBAction)finishAddingSemester:(UIStoryboardSegue *)unwindSegue;
+- (IBAction)cancelAddingSemester:(UIStoryboardSegue *)unwindSegue;
+
 @end
