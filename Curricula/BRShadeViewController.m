@@ -30,6 +30,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationBar.delegate = self;
+    self.contentViewController = [self.childViewControllers objectAtIndex:0];
+    self.shadeViewController = [self.childViewControllers objectAtIndex:1];
     
 }
 
@@ -60,7 +62,11 @@
         
     }
     else{
-        NSLog(@"%@",self.view.subviews);
+        [self.shadeViewController.view setFrame:CGRectMake(0, -200, 320, 200)];
+        CGRect newFrame = CGRectMake(0, 64, 320, 200);
+        [UIView animateWithDuration:1 animations:^{
+            self.shadeViewController.view.frame = newFrame;
+        }];
     }
 }
 @end
