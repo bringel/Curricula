@@ -7,6 +7,7 @@
 //
 
 #import "CRAddSemesterViewController.h"
+#import "CRAddCourseViewController.h"
 #import "CRSemester.h"
 #import "CREntryCell.h"
 #import "CRButtonCell.h"
@@ -90,7 +91,7 @@
         ((CREntryCell*)cell).textLabel.text = @"Semester Name:";
     }
     else if(indexPath.row <= self.semesterCourses.count){
-        ((CRCourseCell*)cell).nameLabel.text = [self.semesterCourses objectAtIndex:indexPath.row];
+        ((CRCourseCell*)cell).nameLabel.text = [[self.semesterCourses objectAtIndex:indexPath.row - 1] courseName];
     }
     if(indexPath.row == self.semesterCourses.count + 1){
         ((CRButtonCell *)cell).buttonLabel.text = @"Add a New Course";
@@ -102,10 +103,10 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row == self.semesterCourses.count + 1){
-        NSLog(@"Add a new Course to the semester");
-        [self performSegueWithIdentifier:@"addNewCourse" sender:self];
-    }
+//    if(indexPath.row == self.semesterCourses.count + 1){
+//        NSLog(@"Add a new Course to the semester");
+//        [self performSegueWithIdentifier:@"addNewCourse" sender:self];
+//    }
 }
 
 /*
@@ -147,10 +148,6 @@
 }
 */
 
-//- (void)didAddCourse:(CRCourse *)newCourse{
-//    [self.semesterCourses addObject:newCourse];
-//    [self.tableView reloadData];
-//}
 
 #pragma mark - Navigation
 
@@ -170,10 +167,19 @@
         [self.managedObjectContext save:&error];
         self.semester = semester;
     }
+    if([segue.identifier isEqualToString:@"addNewCourse"]){
+        //Present the add new course view controller
+        CRAddCourseViewController *addCourseVC = (CRAddCourseViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+        addCourseVC.managedObjectContext = self.managedObjectContext;
+    }
 }
 
-
-
+- (IBAction)addCourseWithUnwindSegue:(UIStoryboardSegue *)segue{
+    CRAddCourseViewController *addCourseVC = segue.sourceViewController;
+    CRCourse *newCourse = addCourseVC.course;
+    [self.semesterCourses addObject:newCourse];
+    [self.tableView reloadData];
+}
 
 #pragma mark - UITextFieldDelegate
 

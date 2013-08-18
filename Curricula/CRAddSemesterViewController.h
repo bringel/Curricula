@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *semesterNameField;
 @property (nonatomic, strong) CRSemester *semester;
 
+- (IBAction)addCourseWithUnwindSegue:(UIStoryboardSegue *)segue;    
+
 
 @end

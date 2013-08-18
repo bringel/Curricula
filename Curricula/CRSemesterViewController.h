@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CRSemester.h"
+#import "CRCourse.h"
 
 @interface CRSemesterViewController : UITableViewController
 

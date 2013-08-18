@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1FFAC517AF0E2C008D43E7 /* BRShadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1FFAC417AF0E2C008D43E7 /* BRShadeViewController.m */; };
 		2F28D9CA1794E2B900946BA1 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F28D9C91794E2B900946BA1 /* Reveal.framework */; };
 		2F28D9CC1794E2D900946BA1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F28D9CB1794E2D900946BA1 /* CFNetwork.framework */; };
 		2F28D9CE1794E2DE00946BA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F28D9CD1794E2DE00946BA1 /* QuartzCore.framework */; };
+		2F5C65A617BD6CC900723030 /* CRAddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F5C65A517BD6CC900723030 /* CRAddCourseViewController.m */; };
 		2F6FA3041773D86800D48882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3031773D86800D48882 /* Foundation.framework */; };
 		2F6FA3061773D86800D48882 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3051773D86800D48882 /* CoreGraphics.framework */; };
 		2F6FA3081773D86800D48882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6FA3071773D86800D48882 /* UIKit.framework */; };
@@ -49,9 +51,13 @@
 
 /* Begin PBXFileReference section */
 		1E0E9EBB0DC0410DB2791F6A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		2F1FFAC317AF0E2C008D43E7 /* BRShadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRShadeViewController.h; sourceTree = "<group>"; };
+		2F1FFAC417AF0E2C008D43E7 /* BRShadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRShadeViewController.m; sourceTree = "<group>"; };
 		2F28D9C91794E2B900946BA1 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		2F28D9CB1794E2D900946BA1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2F28D9CD1794E2DE00946BA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2F5C65A417BD6CC900723030 /* CRAddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRAddCourseViewController.h; sourceTree = "<group>"; };
+		2F5C65A517BD6CC900723030 /* CRAddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRAddCourseViewController.m; sourceTree = "<group>"; };
 		2F6FA3001773D86800D48882 /* Curricula.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curricula.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6FA3031773D86800D48882 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F6FA3051773D86800D48882 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,6 +214,10 @@
 				2F6FA3451773DAE600D48882 /* CRSemesterViewController.m */,
 				2F6FA34C1773E07800D48882 /* CRAddSemesterViewController.h */,
 				2F6FA34D1773E07800D48882 /* CRAddSemesterViewController.m */,
+				2F5C65A417BD6CC900723030 /* CRAddCourseViewController.h */,
+				2F5C65A517BD6CC900723030 /* CRAddCourseViewController.m */,
+				2F1FFAC317AF0E2C008D43E7 /* BRShadeViewController.h */,
+				2F1FFAC417AF0E2C008D43E7 /* BRShadeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -371,8 +381,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F5C65A617BD6CC900723030 /* CRAddCourseViewController.m in Sources */,
 				2FFD5EED177F296F00019C5A /* CRCourseCell.m in Sources */,
 				2FFD5EE7177E6A8F00019C5A /* CRSemester.m in Sources */,
+				2F1FFAC517AF0E2C008D43E7 /* BRShadeViewController.m in Sources */,
 				2F6FA31F1773D86800D48882 /* Curricula.xcdatamodeld in Sources */,
 				2F6FA3551773EB4900D48882 /* CRButtonCell.m in Sources */,
 				2F6FA3461773DAE600D48882 /* CRSemesterViewController.m in Sources */,

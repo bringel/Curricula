@@ -45,13 +45,22 @@
     }
     else{
         self.semester = [fetchedObjects lastObject];
+        self.title = self.semester.semesterName;
     }
+    
     
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSArray *)courses{
+    if(_courses == nil){
+        _courses = [self.semester.courses allObjects];
+    }
+    return _courses;
 }
 
 #pragma mark - Table view data source
@@ -74,7 +83,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    CRCourse *selectedCourse = [self.courses objectAtIndex:indexPath.row];
+    cell.textLabel.text = selectedCourse.courseName;
     return cell;
 }
 
@@ -135,6 +145,8 @@
     CRAddSemesterViewController *source = (CRAddSemesterViewController *)unwindSegue.sourceViewController;
     self.semester = source.semester;
     self.title = self.semester.semesterName;
+    self.courses = [self.semester.courses allObjects];
+    [self.tableView reloadData];
 }
 
 - (IBAction)cancelAddingSemester:(UIStoryboardSegue *)unwindSegue{

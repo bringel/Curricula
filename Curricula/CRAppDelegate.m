@@ -8,6 +8,7 @@
 
 #import "CRAppDelegate.h"
 #import "CRSemesterViewController.h"
+#import "BRShadeViewController.h"
 
 @implementation CRAppDelegate
 
@@ -22,9 +23,9 @@
         
     }
     else{
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        CRSemesterViewController *semesterViewController = (CRSemesterViewController *)[navigationController topViewController];
-        semesterViewController.managedObjectContext = self.managedObjectContext;
+        BRShadeViewController *shadeVC = (BRShadeViewController *)self.window.rootViewController;
+        shadeVC.managedObjectContext = self.managedObjectContext;
+        //semesterViewController.managedObjectContext = self.managedObjectContext;
     }
     [TestFlight takeOff:@"357e86f6-cf48-4e33-90f1-57e3fe6b0775"];
     return YES;
