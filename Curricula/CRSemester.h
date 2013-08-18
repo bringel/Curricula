@@ -2,13 +2,14 @@
 //  CRSemester.h
 //  Curricula
 //
-//  Created by Brad Ringel on 6/28/13.
+//  Created by Brad Ringel on 8/18/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class CRCourse;
 
 @interface CRSemester : NSManagedObject
 
@@ -18,8 +19,8 @@
 
 @interface CRSemester (CoreDataGeneratedAccessors)
 
-- (void)addCoursesObject:(NSManagedObject *)value;
-- (void)removeCoursesObject:(NSManagedObject *)value;
+- (void)addCoursesObject:(CRCourse *)value;
+- (void)removeCoursesObject:(CRCourse *)value;
 - (void)addCourses:(NSSet *)values;
 - (void)removeCourses:(NSSet *)values;
 
