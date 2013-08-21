@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CRSemester.h"
 #import "CRCourse.h"
+#import "BRShadeViewController.h"
 
 @interface CRCourseViewController : UITableViewController
 
+@property (nonatomic, weak) BRShadeViewController *shadeViewController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) CRCourse *currentCourse;
 

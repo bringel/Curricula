@@ -8,6 +8,7 @@
 
 #import "BRShadeViewController.h"
 #import "CRSemesterCollectionViewController.h"
+#import "CRCourseViewController.h"
 
 @interface BRShadeViewController ()
 
@@ -57,6 +58,7 @@
     if([segue.identifier isEqualToString:@"embedContent"]){
         CRSemesterCollectionViewController *semesterVC = [segue destinationViewController];
         semesterVC.managedObjectContext = self.managedObjectContext;
+        semesterVC.shadeViewController = self;
     }
     
 }
@@ -71,6 +73,27 @@
         [UIView animateWithDuration:1 animations:^{
             self.shadeViewController.view.frame = newFrame;
         }];
+    }
+}
+
+- (void)changeToContentViewController:(UIViewController *)toViewController{
+    
+    CGRect savedFrame = self.contentViewController.view.frame;
+    //this should be animating but it's not. No idea why
+    [UIView animateWithDuration:1 animations:^{
+        [self.contentViewController.view setAlpha:0];
+    }];
+    [self.contentViewController willMoveToParentViewController:nil];
+    [self.contentViewController.view removeFromSuperview];
+    [self.contentViewController removeFromParentViewController];
+    
+    [self addChildViewController:toViewController];
+    [toViewController.view setFrame:savedFrame];
+    [self.contentView addSubview:toViewController.view];
+    [toViewController didMoveToParentViewController:self];
+    
+    if([toViewController respondsToSelector:@selector(shadeViewController)]){
+        [(CRCourseViewController *)toViewController setShadeViewController:self];
     }
 }
 @end

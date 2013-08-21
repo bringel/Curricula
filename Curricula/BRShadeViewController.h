@@ -21,5 +21,9 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *shadeView;
+
 - (IBAction)toggleShadeView:(id)sender;
+- (void)changeToContentViewController:(UIViewController *)toViewController;
 @end

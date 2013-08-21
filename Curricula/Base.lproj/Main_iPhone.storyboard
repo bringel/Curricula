@@ -132,7 +132,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <segue destination="jgc-Of-hT4" kind="modal" identifier="addNewSemester" id="HXD-kI-gmO"/>
-                        <segue destination="d1j-Rg-cXA" kind="modal" identifier="showCourse" modalTransitionStyle="crossDissolve" id="5TW-xN-6SZ"/>
+                        <segue destination="d1j-Rg-cXA" kind="custom" identifier="showCourse" customClass="CRFadeSegue" id="5TW-xN-6SZ"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iii-Ch-hgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -479,7 +479,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="U0M-A2-5R3" id="IjE-UX-HyG"/>
                         <outlet property="navigationBar" destination="Bvu-KB-Tpq" id="S8H-MK-833"/>
+                        <outlet property="shadeView" destination="AaV-YD-lGp" id="tb0-if-OHt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PX-18-5eA" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -37,7 +37,8 @@
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newSemester:)];
+    [[self.shadeViewController.navigationBar.items lastObject] setRightBarButtonItem:addButton];
     
     self.semester = [fetchedObjects lastObject];
     self.title = self.semester.semesterName;
@@ -59,6 +60,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)newSemester:(id)sender{
+    [self performSegueWithIdentifier:@"addNewSemester" sender:self];
+}
 - (NSArray *)courses{
     if(_courses == nil){
         _courses = [self.semester.courses allObjects];
