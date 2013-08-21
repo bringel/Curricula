@@ -14,8 +14,8 @@
 
 @interface BRShadeViewController : UIViewController <UINavigationBarDelegate>
 
-@property (nonatomic, strong) IBOutlet UIViewController *shadeViewController;
-@property (nonatomic, strong) IBOutlet UIViewController *contentViewController;
+@property (nonatomic, strong) UIViewController *shadeViewController;
+@property (nonatomic, strong) UIViewController *contentViewController;
 @property (nonatomic, getter = isShadeOpen) BOOL shadeOpen;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

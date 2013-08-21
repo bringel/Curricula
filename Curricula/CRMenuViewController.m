@@ -1,18 +1,18 @@
 //
-//  CRCourseViewController.m
+//  CRMenuViewController.m
 //  Curricula
 //
-//  Created by Brad Ringel on 8/18/13.
+//  Created by Brad Ringel on 8/20/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
-#import "CRCourseViewController.h"
+#import "CRMenuViewController.h"
 
-@interface CRCourseViewController ()
-@property (nonatomic, strong) NSArray *courseAssignments;
+@interface CRMenuViewController ()
+
 @end
 
-@implementation CRCourseViewController
+@implementation CRMenuViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,7 +32,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.title = self.currentCourse.courseName;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,30 +40,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (CRCourse *)currentCourse{
-    if(_currentCourse == nil){
-        //We're probably testing something now, so just make a fake one for us to use
-        CRCourse *testCourse = [NSEntityDescription insertNewObjectForEntityForName:@"CRCourse" inManagedObjectContext:self.managedObjectContext];
-        testCourse.courseName = @"TARDIS Repair";
-        testCourse.professorName = @"The Doctor";
-        testCourse.creditHours = @(1);
-        _currentCourse = testCourse;
-    }
-    return _currentCourse;
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.courseAssignments.count;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

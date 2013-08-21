@@ -7,7 +7,7 @@
 //
 
 #import "BRShadeViewController.h"
-#import "CRSemesterViewController.h"
+#import "CRSemesterCollectionViewController.h"
 
 @interface BRShadeViewController ()
 
@@ -30,8 +30,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationBar.delegate = self;
-    self.contentViewController = [self.childViewControllers objectAtIndex:0];
-    self.shadeViewController = [self.childViewControllers objectAtIndex:1];
+    if([[self.childViewControllers objectAtIndex:0] isKindOfClass:[CRSemesterCollectionViewController class]]){
+        self.contentViewController = [self.childViewControllers objectAtIndex:0];
+    }
+    if([self.childViewControllers objectAtIndex:1]){
+        self.shadeViewController = [self.childViewControllers objectAtIndex:1];
+    }
     
 }
 
@@ -51,7 +55,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if([segue.identifier isEqualToString:@"embedContent"]){
-        CRSemesterViewController *semesterVC = (CRSemesterViewController *)segue.destinationViewController;
+        CRSemesterCollectionViewController *semesterVC = [segue destinationViewController];
         semesterVC.managedObjectContext = self.managedObjectContext;
     }
     
