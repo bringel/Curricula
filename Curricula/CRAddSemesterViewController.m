@@ -91,7 +91,7 @@
         ((CREntryCell*)cell).textLabel.text = @"Semester Name:";
     }
     else if(indexPath.row <= self.semesterCourses.count){
-        ((CRCourseCell*)cell).nameLabel.text = [[self.semesterCourses objectAtIndex:indexPath.row - 1] courseName];
+        ((CRCourseCell*)cell).textLabel.text = [[self.semesterCourses objectAtIndex:indexPath.row - 1] courseName];
     }
     if(indexPath.row == self.semesterCourses.count + 1){
         ((CRButtonCell *)cell).buttonLabel.text = @"Add a New Course";

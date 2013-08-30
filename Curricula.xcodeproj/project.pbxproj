@@ -35,6 +35,7 @@
 		2F6FA3551773EB4900D48882 /* CRButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6FA3541773EB4900D48882 /* CRButtonCell.m */; };
 		2FB7634C17C286B800E972AF /* CRAssignmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7634B17C286B800E972AF /* CRAssignmentCell.m */; };
 		2FB7634F17C28ED100E972AF /* CRSemesterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB7634E17C28ED100E972AF /* CRSemesterCollectionViewController.m */; };
+		2FC14E9B17D0328400EF0ED3 /* CRAddAssignmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC14E9A17D0328400EF0ED3 /* CRAddAssignmentViewController.m */; };
 		2FD7217F17C3FC2000F829F0 /* CRMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7217E17C3FC2000F829F0 /* CRMenuViewController.m */; };
 		2FD7218217C44E8C00F829F0 /* CRFadeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7218117C44E8C00F829F0 /* CRFadeSegue.m */; };
 		2FF8907E17C147D2004B7221 /* CRListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF8907D17C147D2004B7221 /* CRListCell.m */; };
@@ -98,6 +99,8 @@
 		2FB7634B17C286B800E972AF /* CRAssignmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRAssignmentCell.m; sourceTree = "<group>"; };
 		2FB7634D17C28ED100E972AF /* CRSemesterCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRSemesterCollectionViewController.h; sourceTree = "<group>"; };
 		2FB7634E17C28ED100E972AF /* CRSemesterCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRSemesterCollectionViewController.m; sourceTree = "<group>"; };
+		2FC14E9917D0328400EF0ED3 /* CRAddAssignmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRAddAssignmentViewController.h; sourceTree = "<group>"; };
+		2FC14E9A17D0328400EF0ED3 /* CRAddAssignmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRAddAssignmentViewController.m; sourceTree = "<group>"; };
 		2FD7217D17C3FC2000F829F0 /* CRMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMenuViewController.h; sourceTree = "<group>"; };
 		2FD7217E17C3FC2000F829F0 /* CRMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMenuViewController.m; sourceTree = "<group>"; };
 		2FD7218017C44E8C00F829F0 /* CRFadeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFadeSegue.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				2FF8908317C14912004B7221 /* CRCourseViewController.m */,
 				2FD7217D17C3FC2000F829F0 /* CRMenuViewController.h */,
 				2FD7217E17C3FC2000F829F0 /* CRMenuViewController.m */,
+				2FC14E9917D0328400EF0ED3 /* CRAddAssignmentViewController.h */,
+				2FC14E9A17D0328400EF0ED3 /* CRAddAssignmentViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				2F5C65A617BD6CC900723030 /* CRAddCourseViewController.m in Sources */,
 				2FFD5EED177F296F00019C5A /* CRCourseCell.m in Sources */,
 				2FD7218217C44E8C00F829F0 /* CRFadeSegue.m in Sources */,
+				2FC14E9B17D0328400EF0ED3 /* CRAddAssignmentViewController.m in Sources */,
 				2FF8908417C14912004B7221 /* CRCourseViewController.m in Sources */,
 				2FB7634F17C28ED100E972AF /* CRSemesterCollectionViewController.m in Sources */,
 				2F1FFAC517AF0E2C008D43E7 /* BRShadeViewController.m in Sources */,

@@ -38,6 +38,7 @@
         self.shadeViewController = [self.childViewControllers objectAtIndex:1];
     }
     
+    [[self.navigationBar.items lastObject] setTitle:self.contentViewController.title];
 }
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar{
@@ -92,8 +93,14 @@
     [self.contentView addSubview:toViewController.view];
     [toViewController didMoveToParentViewController:self];
     
-    if([toViewController respondsToSelector:@selector(shadeViewController)]){
-        [(CRCourseViewController *)toViewController setShadeViewController:self];
+    if([toViewController isKindOfClass:[UINavigationController class]]){
+        self.contentViewController = [(UINavigationController *)toViewController topViewController];
+        [[self.navigationBar.items lastObject] setTitle: [(UINavigationController *)toViewController topViewController].title];
     }
+    else{
+        self.contentViewController = toViewController;
+        [[self.navigationBar.items lastObject] setTitle: toViewController.title];
+    }
+    //[(CRCourseViewController *)[(UINavigationController *)toViewController topViewController] setShadeViewController:self];
 }
 @end

@@ -13,7 +13,9 @@
 #import "CRCourseViewController.h"
 
 @interface CRSemesterCollectionViewController ()
-
+//This is kinda hackish, but this is the best way to save
+//the course we want to show.
+@property (nonatomic, weak) CRCourse *selectedCourse;
 @end
 
 @implementation CRSemesterCollectionViewController
@@ -79,9 +81,10 @@
         addSemesterViewController.managedObjectContext = self.managedObjectContext;
     }
     else if([segue.identifier isEqualToString:@"showCourse"]){
-        CRCourseViewController *courseVC = [segue destinationViewController];
+        CRCourseViewController *courseVC = [[segue destinationViewController] topViewController];
         courseVC.managedObjectContext = self.managedObjectContext;
-        
+        courseVC.shadeViewController = self.shadeViewController;
+        courseVC.currentCourse = self.selectedCourse;
     }
 }
 
@@ -130,6 +133,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    self.selectedCourse = [self.courses objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"showCourse" sender:self];
 }
 
@@ -148,7 +153,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifier = @"courseCell";
     CRCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    cell.nameLabel.text = [[[self.semester.courses allObjects] objectAtIndex:indexPath.row] courseName];
+    cell.nameLabel.text = [[self.courses objectAtIndex:indexPath.row] courseName];
     
     
     return cell;
