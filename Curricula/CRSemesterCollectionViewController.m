@@ -39,8 +39,8 @@
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newSemester:)];
-    [[self.shadeViewController.navigationBar.items lastObject] setRightBarButtonItem:addButton];
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newSemester:)];
+//    [[self.shadeViewController.navigationBar.items lastObject] setRightBarButtonItem:addButton];
     
     self.semester = [fetchedObjects lastObject];
     self.title = self.semester.semesterName;
@@ -65,12 +65,12 @@
 - (IBAction)newSemester:(id)sender{
     [self performSegueWithIdentifier:@"addNewSemester" sender:self];
 }
-- (NSArray *)courses{
-    if(_courses == nil){
-        _courses = [self.semester.courses allObjects];
-    }
-    return _courses;
-}
+//- (NSArray *)courses{
+//    if(_courses == nil){
+//        _courses = [self.semester.courses allObjects];
+//    }
+//    return _courses;
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -92,7 +92,7 @@
     CRAddSemesterViewController *source = (CRAddSemesterViewController *)unwindSegue.sourceViewController;
     self.semester = source.semester;
     self.title = self.semester.semesterName;
-    self.courses = [self.semester.courses allObjects];
+    //self.courses = [self.semester.courses allObjects];
     
 }
 
@@ -134,7 +134,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    self.selectedCourse = [self.courses objectAtIndex:indexPath.row];
+    self.selectedCourse = [self.semester.courses objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"showCourse" sender:self];
 }
 
@@ -153,7 +153,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *identifier = @"courseCell";
     CRCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    cell.nameLabel.text = [[self.courses objectAtIndex:indexPath.row] courseName];
+    cell.nameLabel.text = [[self.semester.courses objectAtIndex:indexPath.row] courseName];
     
     
     return cell;

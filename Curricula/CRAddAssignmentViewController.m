@@ -7,6 +7,7 @@
 //
 
 #import "CRAddAssignmentViewController.h"
+#import "CRAssignment.h"
 
 @interface CRAddAssignmentViewController ()
 
@@ -33,6 +34,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.repeatSwitch addTarget:self action:@selector(repeatToggled:) forControlEvents:UIControlEventValueChanged];
+    [self.unlimitedSwitch addTarget:self action:@selector(unlimitedRepeats:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,8 +43,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+//TODO:Add some animations here
 - (void)repeatToggled:(id)sender{
-    
+    if([self.repeatSwitch isOn]){
+        //Show the extra rows
+        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]] setHidden:NO];
+        if(![self.unlimitedSwitch isOn]){
+            [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setHidden:NO];
+        }
+    }
+    else{
+        //hide the rows
+        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]] setHidden:YES];
+        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setHidden:YES];
+    }
+}
+
+- (void)unlimitedRepeats:(id)sender{
+    if([self.unlimitedSwitch isOn]){
+        //hide the last row
+        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setHidden:YES];
+    }
+    else{
+        [[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setHidden:NO];
+    }
 }
 
 #pragma mark - Table view data source
@@ -110,7 +134,12 @@
 }
 */
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row == 4){
+        //Bring up 
+    }
+}
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -118,8 +147,18 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    //if([segue.identifier isEqualToString:@"addAssignment"]){
+        NSMutableDictionary *description = [[NSMutableDictionary alloc] init];
+        [description setObject:self.categoryNameField.text forKey:@"name"];
+        [description setObject:@(self.pointsField.text.doubleValue) forKey:@"points"];
+        [description setObject:@(self.repeatSwitch.on) forKey:@"repeat"];
+        [description setObject:@(self.unlimitedSwitch.on) forKey:@"unlimitedRepeats"];
+        [description setObject:@(self.repeatsField.text.doubleValue) forKey:@"repeatCount"];
+        
+        self.descriptionDictionary = [description copy];
+    //}
 }
 
- */
+
 
 @end

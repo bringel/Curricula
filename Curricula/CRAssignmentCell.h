@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CRGradeInputView.h"
 
 @interface CRAssignmentCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *assignmentNameLabel;
-@property (weak, nonatomic) IBOutlet UITextField *pointsField;
-@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
+
+@property (weak, nonatomic) IBOutlet CRGradeInputView *gradeInputView;
+
 @end

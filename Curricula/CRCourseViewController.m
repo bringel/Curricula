@@ -7,9 +7,11 @@
 //
 
 #import "CRCourseViewController.h"
+#import "CRCourseSettingsViewController.h"
+#import "CRAssignmentCell.h"
 
 @interface CRCourseViewController () <UIAlertViewDelegate>
-@property (nonatomic, strong) NSArray *courseAssignments;
+//@property (nonatomic, strong) NSArray *courseAssignments;
 @end
 
 @implementation CRCourseViewController
@@ -33,10 +35,16 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = self.currentCourse.courseName;
+    NSLog(@"%@",self.currentCourse);
     if(self.currentCourse.assignments.count == 0){
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Assignments" message:@"It looks like you don't have any assignments set up for this course. Let's add some" delegate:self cancelButtonTitle:@"Not right now thanks" otherButtonTitles: @"Okay, add assignments", nil];
         [alertView show];
     }
+    
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(openSettings:)];
+    [[self.shadeViewController.navigationBar.items lastObject] setRightBarButtonItem:settingsButton];
+    
+    //self.courseAssignments = [self.currentCourse.assignments allObjects];
 }
 
 
@@ -58,6 +66,10 @@
     return _currentCourse;
 }
 
+- (void)openSettings:(id)sender{
+    [self performSegueWithIdentifier:@"showSettings" sender:self];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -69,15 +81,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.courseAssignments.count;
+    return self.currentCourse.assignments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"assignmentCell";
+    CRAssignmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.assignmentNameLabel.text = [[self.currentCourse.assignments objectAtIndex:indexPath.row] name];
     
     return cell;
 }
@@ -121,7 +133,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -129,16 +141,20 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"showSettings"]){
+        [(CRCourseSettingsViewController *)[segue.destinationViewController topViewController] setManagedObjectContext:self.managedObjectContext];
+        [(CRCourseSettingsViewController *)[segue.destinationViewController topViewController] setCurrentCourse:self.currentCourse];
+    }
 }
 
- */
+
 
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     //Push the view controller to add assignments.
     if(buttonIndex == 1){
-        
+        [self performSegueWithIdentifier:@"showSettings" sender:self];
     }
 }
 

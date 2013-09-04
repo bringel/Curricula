@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3389" systemVersion="13A538g" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3394" systemVersion="13A558" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CRAssignment" representedClassName="CRAssignment" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="extraCredit" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -12,16 +12,16 @@
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creditHours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="professorName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CRAssignment" inverseName="course" inverseEntity="CRAssignment" syncable="YES"/>
+        <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CRAssignment" inverseName="course" inverseEntity="CRAssignment" syncable="YES"/>
         <relationship name="semester" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRSemester" inverseName="courses" inverseEntity="CRSemester" syncable="YES"/>
     </entity>
     <entity name="CRSemester" representedClassName="CRSemester" syncable="YES">
         <attribute name="semesterName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CRCourse" inverseName="semester" inverseEntity="CRCourse" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CRCourse" inverseName="semester" inverseEntity="CRCourse" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CRCourse" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CRSemester" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CRAssignment" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CRAssignment" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="CRCourse" positionX="178" positionY="-57" width="128" height="118"/>
+        <element name="CRSemester" positionX="378" positionY="-156" width="128" height="73"/>
     </elements>
 </model>

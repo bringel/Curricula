@@ -161,7 +161,7 @@
         CRSemester *semester = [NSEntityDescription insertNewObjectForEntityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
         CREntryCell *entryCell = (CREntryCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         semester.semesterName = entryCell.inputField.text;
-        semester.courses = [NSSet setWithArray:self.semesterCourses];
+        semester.courses = [NSOrderedSet orderedSetWithArray:self.semesterCourses];
         
         NSError *error;
         [self.managedObjectContext save:&error];

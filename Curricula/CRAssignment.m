@@ -2,7 +2,7 @@
 //  CRAssignment.m
 //  Curricula
 //
-//  Created by Brad Ringel on 8/18/13.
+//  Created by Brad Ringel on 9/3/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
@@ -12,11 +12,11 @@
 
 @implementation CRAssignment
 
-@dynamic name;
 @dynamic category;
+@dynamic extraCredit;
+@dynamic name;
 @dynamic points;
 @dynamic pointsOutOf;
-@dynamic extraCredit;
 @dynamic course;
 
 @end

@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) CRSemester *semester;
-@property (nonatomic, strong) NSArray *courses;
+//@property (nonatomic, strong) NSArray *courses;
 
 @property (nonatomic, weak) IBOutlet BRShadeViewController *shadeViewController;
 

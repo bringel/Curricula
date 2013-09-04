@@ -10,8 +10,13 @@
 
 @interface CRAddAssignmentViewController : UITableViewController
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @property (weak, nonatomic) IBOutlet UITextField *categoryNameField;
 @property (weak, nonatomic) IBOutlet UITextField *pointsField;
 @property (weak, nonatomic) IBOutlet UISwitch *repeatSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *unlimitedSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *repeatsField;
 
+@property (nonatomic, strong) NSDictionary *descriptionDictionary;
 @end

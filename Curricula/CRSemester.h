@@ -2,7 +2,7 @@
 //  CRSemester.h
 //  Curricula
 //
-//  Created by Brad Ringel on 8/18/13.
+//  Created by Brad Ringel on 9/3/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
@@ -14,14 +14,19 @@
 @interface CRSemester : NSManagedObject
 
 @property (nonatomic, retain) NSString * semesterName;
-@property (nonatomic, retain) NSSet *courses;
+@property (nonatomic, retain) NSOrderedSet *courses;
 @end
 
 @interface CRSemester (CoreDataGeneratedAccessors)
 
+- (void)insertObject:(CRCourse *)value inCoursesAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromCoursesAtIndex:(NSUInteger)idx;
+- (void)insertCourses:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeCoursesAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInCoursesAtIndex:(NSUInteger)idx withObject:(CRCourse *)value;
+- (void)replaceCoursesAtIndexes:(NSIndexSet *)indexes withCourses:(NSArray *)values;
 - (void)addCoursesObject:(CRCourse *)value;
 - (void)removeCoursesObject:(CRCourse *)value;
-- (void)addCourses:(NSSet *)values;
-- (void)removeCourses:(NSSet *)values;
-
+- (void)addCourses:(NSOrderedSet *)values;
+- (void)removeCourses:(NSOrderedSet *)values;
 @end

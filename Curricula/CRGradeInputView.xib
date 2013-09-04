@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4504" systemVersion="13A558" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="7a8-xb-hZd" customClass="CRGradeInputView">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51Y-pV-oj6">
+                    <rect key="frame" x="101" y="4" width="29" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDV-eT-P0k">
+                    <rect key="frame" x="38" y="0.0" width="60" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pZ-qN-74E">
+                    <rect key="frame" x="6" y="0.0" width="31" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="t6N-UZ-gdv"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="kDV-eT-P0k" firstAttribute="top" secondItem="7a8-xb-hZd" secondAttribute="top" id="0KL-HN-OJK"/>
+                <constraint firstItem="51Y-pV-oj6" firstAttribute="leading" secondItem="kDV-eT-P0k" secondAttribute="trailing" constant="3" id="0dw-3U-OL2"/>
+                <constraint firstAttribute="bottom" secondItem="51Y-pV-oj6" secondAttribute="bottom" constant="5" id="27f-AF-P2N"/>
+                <constraint firstAttribute="centerX" secondItem="51Y-pV-oj6" secondAttribute="centerX" constant="-40.5" id="427-rg-ZZT"/>
+                <constraint firstItem="kDV-eT-P0k" firstAttribute="leading" secondItem="2pZ-qN-74E" secondAttribute="trailing" constant="1" id="68d-x9-f29"/>
+                <constraint firstItem="kDV-eT-P0k" firstAttribute="leading" secondItem="2pZ-qN-74E" secondAttribute="trailing" constant="1" id="BbK-WY-H9U"/>
+                <constraint firstAttribute="trailing" secondItem="51Y-pV-oj6" secondAttribute="trailing" constant="20" id="Vag-5j-cqM"/>
+                <constraint firstAttribute="bottom" secondItem="kDV-eT-P0k" secondAttribute="bottom" id="Y4x-Gu-mez"/>
+                <constraint firstItem="51Y-pV-oj6" firstAttribute="leading" secondItem="kDV-eT-P0k" secondAttribute="trailing" constant="3" id="jKZ-Yf-tG7"/>
+                <constraint firstItem="2pZ-qN-74E" firstAttribute="leading" secondItem="7a8-xb-hZd" secondAttribute="leading" constant="6" id="nUF-lf-p4Z"/>
+                <constraint firstItem="kDV-eT-P0k" firstAttribute="top" secondItem="2pZ-qN-74E" secondAttribute="top" id="rBc-NH-dVr"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="51Y-pV-oj6" secondAttribute="trailing" constant="20" id="z5c-Pr-gfz"/>
+                <constraint firstItem="kDV-eT-P0k" firstAttribute="bottom" secondItem="2pZ-qN-74E" secondAttribute="bottom" id="zS7-1j-8ew"/>
+            </constraints>
+            <connections>
+                <outlet property="inputField" destination="51Y-pV-oj6" id="pM0-7S-8gb"/>
+                <outlet property="pointsLabel" destination="51Y-pV-oj6" id="C24-Kj-lrS"/>
+            </connections>
+        </view>
+    </objects>
+</document>

@@ -39,6 +39,9 @@
     }
     
     [[self.navigationBar.items lastObject] setTitle:self.contentViewController.title];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor redColor]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar{
