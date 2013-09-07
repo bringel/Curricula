@@ -55,6 +55,24 @@
     NSDictionary *assignmentDescription = [(CRAddAssignmentViewController *)unwindSegue.sourceViewController descriptionDictionary];
     if([[assignmentDescription objectForKey:@"repeat"] boolValue]){
         
+        if([[assignmentDescription objectForKey:@"unlimitedRepeats"] boolValue]){
+            
+        }
+        else{
+            NSOperationQueue *assignmentQueue = [NSOperationQueue mainQueue];
+            [assignmentQueue addOperation:[NSBlockOperation blockOperationWithBlock:^(){
+                int count = [[assignmentDescription objectForKey:@"repeatCount"] intValue];
+                for(int i = 0; i < count; i++){
+                    CRAssignment *assignment = [NSEntityDescription insertNewObjectForEntityForName:@"CRAssignment" inManagedObjectContext:self.managedObjectContext];
+                    assignment.name = [NSString stringWithFormat:@"%@ %d", [assignmentDescription objectForKey:@"name"], i+1];
+                    assignment.pointsOutOf = [assignmentDescription objectForKey:@"points"];
+                    assignment.course = self.currentCourse;
+                    
+                    NSError *error;
+                    [self.managedObjectContext save:&error];
+                }
+            }]];
+        }
     }
     else{
         CRAssignment *newAssignment = [NSEntityDescription insertNewObjectForEntityForName:@"CRAssignment" inManagedObjectContext:self.managedObjectContext];
@@ -65,12 +83,12 @@
         //add the current course here too.
         NSError *error;
         [self.managedObjectContext save:&error];
-        NSMutableArray *mutalbeCategories = [self.categories mutableCopy];
-        [mutalbeCategories addObject:[assignmentDescription objectForKey:@"name"]];
-        self.categories = [mutalbeCategories copy];
+        
         
     }
-    
+    NSMutableArray *mutalbeCategories = [self.categories mutableCopy];
+    [mutalbeCategories addObject:[assignmentDescription objectForKey:@"name"]];
+    self.categories = [mutalbeCategories copy];
     [self.tableView reloadData];
 }
 

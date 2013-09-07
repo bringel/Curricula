@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) CRCourse *currentCourse;
 
+- (IBAction)saveSettings:(UIStoryboardSegue *)unwindSegue;
+
 @end

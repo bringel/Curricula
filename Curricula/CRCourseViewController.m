@@ -9,8 +9,9 @@
 #import "CRCourseViewController.h"
 #import "CRCourseSettingsViewController.h"
 #import "CRAssignmentCell.h"
+#import "CRAssignment.h"
 
-@interface CRCourseViewController () <UIAlertViewDelegate>
+@interface CRCourseViewController () <UIAlertViewDelegate, UITextFieldDelegate>
 //@property (nonatomic, strong) NSArray *courseAssignments;
 @end
 
@@ -90,6 +91,7 @@
     CRAssignmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     cell.assignmentNameLabel.text = [[self.currentCourse.assignments objectAtIndex:indexPath.row] name];
+    cell.pointsLabel.text = [NSString stringWithFormat:@"/%@" ,[(CRAssignment *)[self.currentCourse.assignments objectAtIndex:indexPath.row] pointsOutOf]];
     
     return cell;
 }
