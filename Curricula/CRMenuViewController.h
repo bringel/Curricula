@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CRSemester.h"
 
 @interface CRMenuViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
-
+@property (nonatomic, strong) CRSemester *semester;
 @end

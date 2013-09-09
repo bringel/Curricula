@@ -2,7 +2,7 @@
 //  CRSemester.m
 //  Curricula
 //
-//  Created by Brad Ringel on 9/3/13.
+//  Created by Brad Ringel on 9/8/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 @implementation CRSemester
 
 @dynamic semesterName;
+@dynamic currentSemester;
 @dynamic courses;
 
 @end

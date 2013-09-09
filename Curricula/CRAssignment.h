@@ -2,7 +2,7 @@
 //  CRAssignment.h
 //  Curricula
 //
-//  Created by Brad Ringel on 9/3/13.
+//  Created by Brad Ringel on 9/8/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * points;
 @property (nonatomic, retain) NSNumber * pointsOutOf;
+@property (nonatomic, retain) NSNumber * unlimitedRepeats;
 @property (nonatomic, retain) CRCourse *course;
 
 @end
