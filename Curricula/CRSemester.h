@@ -2,7 +2,7 @@
 //  CRSemester.h
 //  Curricula
 //
-//  Created by Brad Ringel on 9/8/13.
+//  Created by Bradley Ringel on 9/11/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface CRSemester : NSManagedObject
 
-@property (nonatomic, retain) NSString * semesterName;
 @property (nonatomic, retain) NSNumber * currentSemester;
+@property (nonatomic, retain) NSString * semesterName;
 @property (nonatomic, retain) NSOrderedSet *courses;
 @end
 

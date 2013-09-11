@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3394" systemVersion="13A569" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CRAssignment" representedClassName="CRAssignment" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="extraCredit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="points" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="pointsOutOf" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="unlimitedRepeats" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRCourse" inverseName="assignments" inverseEntity="CRCourse" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRAssignmentCategory" inverseName="assignments" inverseEntity="CRAssignmentCategory" syncable="YES"/>
+    </entity>
+    <entity name="CRAssignmentCategory" representedClassName="CRAssignmentCategory" syncable="YES">
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repeat" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="repeatCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="unlimitedRepeat" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CRAssignment" inverseName="category" inverseEntity="CRAssignment" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRCourse" inverseName="categories" inverseEntity="CRCourse" syncable="YES"/>
     </entity>
     <entity name="CRCourse" representedClassName="CRCourse" syncable="YES">
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creditHours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="professorName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CRAssignment" inverseName="course" inverseEntity="CRAssignment" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CRAssignmentCategory" inverseName="course" inverseEntity="CRAssignmentCategory" syncable="YES"/>
         <relationship name="semester" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRSemester" inverseName="courses" inverseEntity="CRSemester" syncable="YES"/>
     </entity>
     <entity name="CRSemester" representedClassName="CRSemester" syncable="YES">
@@ -22,8 +29,9 @@
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CRCourse" inverseName="semester" inverseEntity="CRCourse" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CRAssignment" positionX="0" positionY="0" width="128" height="148"/>
+        <element name="CRAssignment" positionX="-225" positionY="54" width="128" height="118"/>
         <element name="CRCourse" positionX="178" positionY="-57" width="128" height="118"/>
         <element name="CRSemester" positionX="378" positionY="-156" width="128" height="88"/>
+        <element name="CRAssignmentCategory" positionX="-20" positionY="-22" width="128" height="148"/>
     </elements>
 </model>

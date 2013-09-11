@@ -2,12 +2,12 @@
 //  CRCourse.m
 //  Curricula
 //
-//  Created by Brad Ringel on 9/3/13.
+//  Created by Bradley Ringel on 9/11/13.
 //  Copyright (c) 2013 Brad Ringel. All rights reserved.
 //
 
 #import "CRCourse.h"
-#import "CRAssignment.h"
+#import "CRAssignmentCategory.h"
 #import "CRSemester.h"
 
 
@@ -16,7 +16,7 @@
 @dynamic courseName;
 @dynamic creditHours;
 @dynamic professorName;
-@dynamic assignments;
 @dynamic semester;
+@dynamic categories;
 
 @end
