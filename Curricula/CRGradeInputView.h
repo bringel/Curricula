@@ -11,7 +11,10 @@
 @interface CRGradeInputView : UIView
 
 
-@property (weak, nonatomic) IBOutlet UILabel *inputField;
+@property (weak, nonatomic) IBOutlet UITextField *inputField;
 
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *targetImage;
+
 @end

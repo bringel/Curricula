@@ -41,6 +41,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (CRSemester *)semester{
+    if(_semester == nil){
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"CRSemester" inManagedObjectContext:self.managedObjectContext];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        request.entity = entity;
+        
+        NSError *error;
+        NSArray *semesters = [self.managedObjectContext executeFetchRequest:request error:&error];
+        _semester = [semesters lastObject];
+    }
+    
+    return _semester;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -63,6 +77,19 @@
     // Configure the cell...
     cell.textLabel.text = [[self.semester.courses objectAtIndex:indexPath.row] courseName];
     return cell;
+}
+
+- (NSInteger)heightForMenu{
+    int count = [self.semester.courses count] + 1;
+    CGFloat height = 44.0;
+    
+    return count *height;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //This will not work at all for some reason. The method is never getting called.
+    NSString *selectedCourse = [[[self.semester.courses objectAtIndex:indexPath.row] textLabel]text];
+    [self performSegueWithIdentifier:@"showCourse" sender:self];
 }
 
 /*

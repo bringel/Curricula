@@ -43,30 +43,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSArray *)categories{
-    if(_categories == nil){
-        _categories = [[NSArray alloc] init];
-    }
-    
-    return _categories;
-}
-
 - (IBAction)addAssignment:(UIStoryboardSegue *)unwindSegue{
-    NSDictionary *assignmentDescription = [(CRAddAssignmentViewController *)unwindSegue.sourceViewController descriptionDictionary];
-    if([[assignmentDescription objectForKey:@"repeat"] boolValue]){
+    CRAssignmentCategory *newCategory = [unwindSegue.sourceViewController category];
+    
+    if([newCategory.repeat boolValue]){
         
-        if([[assignmentDescription objectForKey:@"unlimitedRepeats"] boolValue]){
+        if([newCategory.unlimitedRepeat boolValue]){
+            //The logic here will really be dealt with when an assignment gets a grade added
+            //then we have to make sure to make a new one and insert it in the proper place.
+            CRAssignment *newAssignment = [NSEntityDescription insertNewObjectForEntityForName:@"CRAssignment" inManagedObjectContext:self.managedObjectContext];
+            newAssignment.name = [NSString stringWithFormat:@"%@ %d", newCategory.categoryName, 1];
+            newAssignment.category = newCategory;
             
+            NSError *error;
+            [self.managedObjectContext save:&error];
         }
         else{
             NSOperationQueue *assignmentQueue = [NSOperationQueue mainQueue];
             [assignmentQueue addOperation:[NSBlockOperation blockOperationWithBlock:^(){
-                int count = [[assignmentDescription objectForKey:@"repeatCount"] intValue];
+                int count = [newCategory.repeatCount intValue];
                 for(int i = 0; i < count; i++){
                     CRAssignment *assignment = [NSEntityDescription insertNewObjectForEntityForName:@"CRAssignment" inManagedObjectContext:self.managedObjectContext];
-                    assignment.name = [NSString stringWithFormat:@"%@ %d", [assignmentDescription objectForKey:@"name"], i+1];
-                    assignment.pointsOutOf = [assignmentDescription objectForKey:@"points"];
-                    assignment.course = self.currentCourse;
+                    assignment.name = [NSString stringWithFormat:@"%@ %d", newCategory.categoryName, i+1];
+                    //assignment.pointsOutOf = [assignmentDescription objectForKey:@"points"];
+                    assignment.category = newCategory;
                     
                     NSError *error;
                     [self.managedObjectContext save:&error];
@@ -76,19 +76,22 @@
     }
     else{
         CRAssignment *newAssignment = [NSEntityDescription insertNewObjectForEntityForName:@"CRAssignment" inManagedObjectContext:self.managedObjectContext];
-        newAssignment.name = [assignmentDescription objectForKey:@"name"];
-        newAssignment.pointsOutOf = [assignmentDescription objectForKey:@"points"];
-        //[self.currentCourse addAssignmentsObject:newAssignment];
-        newAssignment.course = self.currentCourse;
+        
+        newAssignment.name = newCategory.categoryName;
+        
+        newAssignment.category = newCategory;
+        newCategory.course = self.currentCourse;
         //add the current course here too.
         NSError *error;
         [self.managedObjectContext save:&error];
         
         
     }
-    NSMutableArray *mutalbeCategories = [self.categories mutableCopy];
-    [mutalbeCategories addObject:[assignmentDescription objectForKey:@"name"]];
-    self.categories = [mutalbeCategories copy];
+    newCategory.course = self.currentCourse;
+    NSError *error;
+    [self.managedObjectContext save:&error];
+    
+    //Don't forget to set the relationship on the new category before doing this, or nothing will happen.
     [self.tableView reloadData];
 }
 
@@ -103,18 +106,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.categories.count + 1;
+    return self.currentCourse.categories.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == self.categories.count){
+    if(indexPath.row == self.currentCourse.categories.count){
         CRButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"buttonCell" forIndexPath:indexPath];
         return cell;
     }
     else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"categoryCell" forIndexPath:indexPath];
-        cell.textLabel.text = [self.categories objectAtIndex:indexPath.row];
+        cell.textLabel.text = [[self.currentCourse.categories objectAtIndex:indexPath.row] categoryName];
         
         return cell;
     }

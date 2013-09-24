@@ -13,9 +13,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *assignmentNameLabel;
 
-//@property (weak, nonatomic) IBOutlet CRGradeInputView *gradeInputView;
+@property (weak, nonatomic) IBOutlet CRGradeInputView *gradeInputView;
 
-@property (weak, nonatomic) IBOutlet UITextField *inputLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
+//@property (weak, nonatomic) IBOutlet UITextField *inputLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
 @end

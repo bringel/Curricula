@@ -10,6 +10,7 @@
 #import "CRCourseSettingsViewController.h"
 #import "CRAssignmentCell.h"
 #import "CRAssignment.h"
+#import "CRAssignmentCategory.h"
 
 @interface CRCourseViewController () <UIAlertViewDelegate, UITextFieldDelegate>
 //@property (nonatomic, strong) NSArray *courseAssignments;
@@ -37,8 +38,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = self.currentCourse.courseName;
     NSLog(@"%@",self.currentCourse);
-    if(self.currentCourse.assignments.count == 0){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Assignments" message:@"It looks like you don't have any assignments set up for this course. Let's add some" delegate:self cancelButtonTitle:@"Not right now thanks" otherButtonTitles: @"Okay, add assignments", nil];
+    if(self.currentCourse.categories.count == 0){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Assignments" message:@"It looks like you don't have any assignments set up for this course. Let's add some" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles: @"Add Assignments", nil];
         [alertView show];
     }
     
@@ -46,6 +47,7 @@
     [[self.shadeViewController.navigationBar.items lastObject] setRightBarButtonItem:settingsButton];
     
     //self.courseAssignments = [self.currentCourse.assignments allObjects];
+    [self.tableView reloadData];
 }
 
 
@@ -57,12 +59,7 @@
 
 - (CRCourse *)currentCourse{
     if(_currentCourse == nil){
-        //We're probably testing something now, so just make a fake one for us to use
-        CRCourse *testCourse = [NSEntityDescription insertNewObjectForEntityForName:@"CRCourse" inManagedObjectContext:self.managedObjectContext];
-        testCourse.courseName = @"TARDIS Repair";
-        testCourse.professorName = @"The Doctor";
-        testCourse.creditHours = @(1);
-        _currentCourse = testCourse;
+        
     }
     return _currentCourse;
 }
@@ -76,13 +73,18 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return self.currentCourse.categories.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.currentCourse.assignments.count;
+//    int sum = 0;
+//    for(CRAssignmentCategory *category in self.currentCourse.categories){
+//        sum += category.assignments.count;
+//    }
+//    return sum;
+    return [[[self.currentCourse.categories objectAtIndex:section] assignments] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,8 +92,11 @@
     static NSString *CellIdentifier = @"assignmentCell";
     CRAssignmentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.assignmentNameLabel.text = [[self.currentCourse.assignments objectAtIndex:indexPath.row] name];
-    cell.pointsLabel.text = [NSString stringWithFormat:@"/%@" ,[(CRAssignment *)[self.currentCourse.assignments objectAtIndex:indexPath.row] pointsOutOf]];
+    CRAssignment *assignment = [[(CRAssignmentCategory *)[self.currentCourse.categories objectAtIndex:indexPath.section] assignments] objectAtIndex:indexPath.row];
+    
+    cell.assignmentNameLabel.text = assignment.name;
+    cell.gradeInputView.pointsLabel.text = [NSString stringWithFormat:@"/%@" ,assignment.pointsOutOf];
+    
     
     return cell;
 }
@@ -137,6 +142,10 @@
 
 
 #pragma mark - Navigation
+
+- (IBAction)saveSettings:(UIStoryboardSegue *)unwindSegue{
+    
+}
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

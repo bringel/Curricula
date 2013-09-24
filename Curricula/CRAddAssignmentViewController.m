@@ -7,7 +7,6 @@
 //
 
 #import "CRAddAssignmentViewController.h"
-#import "CRAssignment.h"
 
 @interface CRAddAssignmentViewController ()
 
@@ -135,9 +134,7 @@
 */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row == 4){
-        //Bring up 
-    }
+    
 }
 
 #pragma mark - Navigation
@@ -148,15 +145,20 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     //if([segue.identifier isEqualToString:@"addAssignment"]){
-        NSMutableDictionary *description = [[NSMutableDictionary alloc] init];
-        [description setObject:self.categoryNameField.text forKey:@"name"];
-        [description setObject:@(self.pointsField.text.doubleValue) forKey:@"points"];
-        [description setObject:@(self.repeatSwitch.on) forKey:@"repeat"];
-        [description setObject:@(self.unlimitedSwitch.on) forKey:@"unlimitedRepeats"];
-        [description setObject:@(self.repeatsField.text.doubleValue) forKey:@"repeatCount"];
         
-        self.descriptionDictionary = [description copy];
     //}
+    
+    CRAssignmentCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"CRAssignmentCategory" inManagedObjectContext:self.managedObjectContext];
+    category.categoryName = self.categoryNameField.text;
+    category.weight = @(self.weightField.text.doubleValue);
+    category.repeat = @(self.repeatSwitch.on);
+    category.unlimitedRepeat = @(self.unlimitedSwitch.on);
+    category.repeatCount = @(self.repeatsField.text.integerValue);
+    
+    NSError *error;
+    [self.managedObjectContext save:&error];
+    
+    self.category = category;
 }
 
 

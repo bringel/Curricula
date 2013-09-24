@@ -10,6 +10,7 @@
 #import "CRSemester.h"
 #import "CRCourse.h"
 #import "BRShadeViewController.h"
+#import "CRGradeInputView.h"
 
 @interface CRCourseViewController : UITableViewController
 

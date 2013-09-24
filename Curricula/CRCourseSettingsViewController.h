@@ -12,7 +12,6 @@
 @interface CRCourseSettingsViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) NSArray *categories;
 
 @property (nonatomic, strong) CRCourse *currentCourse;
 

@@ -46,6 +46,7 @@
     self.title = self.semester.semesterName;
     
     
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -93,6 +94,7 @@
     self.semester = source.semester;
     self.title = self.semester.semesterName;
     //self.courses = [self.semester.courses allObjects];
+    [[(CRListCell *)[self collectionView:self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]] tableView] reloadData];
     
 }
 

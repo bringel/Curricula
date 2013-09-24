@@ -9,6 +9,7 @@
 #import "BRShadeViewController.h"
 #import "CRSemesterCollectionViewController.h"
 #import "CRCourseViewController.h"
+#import "CRMenuViewController.h"
 
 @interface BRShadeViewController ()
 
@@ -34,12 +35,13 @@
     if([[self.childViewControllers objectAtIndex:0] isKindOfClass:[CRSemesterCollectionViewController class]]){
         self.contentViewController = [self.childViewControllers objectAtIndex:0];
     }
-    if([self.childViewControllers objectAtIndex:1]){
+    if([[self.childViewControllers objectAtIndex:1] isKindOfClass:[CRMenuViewController class]]){
+        
         self.shadeViewController = [self.childViewControllers objectAtIndex:1];
     }
     
     [[self.navigationBar.items lastObject] setTitle:self.contentViewController.title];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0/255.0f green:89/255.0f blue:34/255.0f alpha:1.0f]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0/255.0f green:34/255.0f blue:89/255.0f alpha:1.0f]];
     [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
@@ -64,20 +66,39 @@
         semesterVC.managedObjectContext = self.managedObjectContext;
         semesterVC.shadeViewController = self;
     }
+    else if([segue.identifier isEqualToString:@"embedShade"]){
+        CRMenuViewController *menuViewcontroller = [segue destinationViewController];
+        menuViewcontroller.managedObjectContext = self.managedObjectContext;
+        menuViewcontroller.shadeViewController = self;
+    }
     
 }
 
 - (IBAction)toggleShadeView:(id)sender {
-    if(self.isShadeOpen){
-        
-    }
-    else{
-        [self.shadeViewController.view setFrame:CGRectMake(0, -200, 320, 200)];
-        CGRect newFrame = CGRectMake(0, 64, 320, 200);
-        [UIView animateWithDuration:1 animations:^{
+    NSInteger height = [(CRMenuViewController *)self.shadeViewController heightForMenu];
+
+    if(self.shadeOpen){
+        CGRect newFrame = CGRectMake(0,-1 * height,320,0);
+        [UIView animateWithDuration:0.2 animations:^{
             self.shadeViewController.view.frame = newFrame;
         }];
+        [self.contentView setUserInteractionEnabled:YES];
+        [self.shadeView setUserInteractionEnabled:NO];
+        self.shadeOpen = NO;
     }
+    else{
+        [self.shadeViewController.view setFrame:CGRectMake(0, -1 *height, 320, height)];
+        CGRect newFrame = CGRectMake(0, 64, 320, height);
+        [UIView animateWithDuration:0.2 animations:^{
+            self.shadeViewController.view.frame = newFrame;
+        }];
+        [self.contentView setUserInteractionEnabled:NO];
+        [self.shadeView setUserInteractionEnabled:YES];
+        self.shadeOpen = YES;
+//        [[(CRMenuViewController *)self.shadeViewController tableView] reloadData];
+    }
+    [self.shadeView.layer setBorderColor:[UIColor blackColor].CGColor];
+    [self.shadeView.layer setBorderWidth:3];
 }
 
 - (void)changeToContentViewController:(UIViewController *)toViewController{

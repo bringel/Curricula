@@ -1,10 +1,16 @@
 PODS:
+  - REMenu (1.5)
+  - SparkInspector (1.0.12)
   - TestFlightSDK (2.0)
 
 DEPENDENCIES:
+  - REMenu (~> 1.5)
+  - SparkInspector
   - TestFlightSDK
 
 SPEC CHECKSUMS:
+  REMenu: 6b0583aea38a1eae802d56ec9a0202dacbed3f88
+  SparkInspector: 217a5276cd35ba6db71578147f95734797b71710
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.24.0

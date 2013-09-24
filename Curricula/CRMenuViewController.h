@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CRSemester.h"
+#import "BRShadeViewController.h"
 
 @interface CRMenuViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
+@property (nonatomic, strong) BRShadeViewController *shadeViewController;
 @property (nonatomic, strong) CRSemester *semester;
+
+- (NSInteger)heightForMenu;
 @end
